@@ -1,0 +1,41 @@
+header {
+    height: 100px;
+    width: 100%;
+    background-color: #404040;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.botoes {
+    margin-right: 50px;
+    color: rgb(0, 0, 0);
+    justify-content: space-between;
+   display: flex;
+    
+}
+
+.div1{
+    width: 50%;
+    height: 50%;
+    background-color: #FFF26C;
+    opacity: 50%;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.div2{
+    width: 50%;
+    height: 50%;
+    background-color: #FFF26C;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.input{
+    width: 70%;
+    height: 20%;
+    
+}
