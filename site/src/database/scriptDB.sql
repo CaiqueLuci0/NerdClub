@@ -125,3 +125,6 @@ INSERT INTO voto(fkPersonagem, fkUsuario) VALUES
 (5, 1000),
 (5, 1000);
 SELECT * FROM VOTO;
+
+select count(fkPersonagem) from voto where fkpersonagem=1;
+
