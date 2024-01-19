@@ -6,8 +6,9 @@
         </div>
         <div class="tabela">
             <?php 
-                include("../src/database/voto.php");
-                criartabela();
+                include("../src/models/voto.php");
+                $dbpath = "../src/database/config.php";
+                criartabela($dbpath);
             ?>
         </div>
     </section>

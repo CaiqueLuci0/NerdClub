@@ -1,7 +1,7 @@
 <?php
 
-function criartabela(){
-    include("config.php");
+function criartabela($dbpath){
+    include($dbpath);
     if ($connected) {
         $query = "SELECT 
             count(v.fkPersonagem) qtdVotos,

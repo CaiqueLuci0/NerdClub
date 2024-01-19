@@ -19,10 +19,12 @@ header {
 }
 
 .div1 {
-    width: 25%;
+    width: auto;
+    padding-left: 3%;
+    padding-right: 3%;
     height: 80%;
     background-color: #FFF26C;
-    /* border-radius: 10em; */
+    border-radius: 5em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,13 +32,17 @@ header {
     font-size: 12.5px;
     text-decoration: none;
     color: #404040;
-    padding: 0.5%;
 }
 
 .botoes :hover {
-    text-decoration: underline;
-    color: blue;
+    text-decoration: none;
+    background-color: #404040;
+    color: #fff;
+    border: solid 3px #FFF26C;
+}
 
+.div1 :hover{
+    border: none;
 }
 
 
