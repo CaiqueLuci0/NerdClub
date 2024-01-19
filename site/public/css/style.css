@@ -1,7 +1,7 @@
 header {
     height: 80px;
     width: 100%;
-    background-color: black;
+    background-color: #404040;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -22,7 +22,7 @@ header {
     width: 25%;
     height: 80%;
     background-color: #FFF26C;
-    border-radius: 10em;
+    /* border-radius: 10em; */
     display: flex;
     align-items: center;
     justify-content: center;
