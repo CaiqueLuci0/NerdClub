@@ -7,7 +7,7 @@
     <title>Cadastro</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/form.css">
-    <script src="js/form.js"></script>
+    <script src="js/bsfuncs.js"></script>
 </head>
 
 <body>

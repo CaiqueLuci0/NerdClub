@@ -5,6 +5,7 @@ function criartabela($dbpath){
     if ($connected) {
         $query = "SELECT 
             count(v.fkPersonagem) qtdVotos,
+            p.idPersonagem idpersonagem,
             p.nome nomeperso,
             p.sobrenome sobrenome,
             p.cor cor,
@@ -30,6 +31,7 @@ function criartabela($dbpath){
                 $imgp = $linha['imgperso'];
                 $nomeo = $linha['nomeobra'];
                 $imgo = $linha['imgobra'];
+                $idperso = $linha['idpersonagem'];
 
                 if($i == 1){
                     $corColocacao = "style=\"background-color: #FFD700;\"";
@@ -46,7 +48,7 @@ function criartabela($dbpath){
                         <div $corColocacao class=\"posicao\">
                             <h1>$i</h1>
                         </div>
-                        <div class=\"nomeperso\"><img class=\"icoperso\" src=\"$imgp\" alt=\"imagem de $nomep $sobrenome \"> 
+                        <div id=\"$idperso\" onclick=\"buscarPersonagemPorId(document.getElementById('$idperso'))\" class=\"nomeperso\"><img class=\"icoperso\" src=\"$imgp\" alt=\"imagem de $nomep $sobrenome \"> 
                             <h1 style=\"color: $cor;\">
                                 $nomep $sobrenome
                             </h1>

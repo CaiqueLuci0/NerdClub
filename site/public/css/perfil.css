@@ -1,0 +1,120 @@
+.container{
+    width: 90%;
+    height: calc(100% - 80px);
+    display: flex;
+    background-color: aqua;
+    flex-direction: column;
+}
+
+.cabecalho{
+    width: 100%;
+    height: 20%;
+    background-color: #c0c0c0;
+    display: flex;
+}
+
+.ft_nome{
+    width: 55%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ft_personagem{
+    width: auto;
+    height: 100%;
+}
+
+.nomepersonagem{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 300%;
+}
+
+.iconObra{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo{
+    width: 100%;
+    height: 80%;
+    background-color: #000;
+    display: flex;
+}
+
+.desc{
+    padding-top: 1%;
+    width: 70%;
+    height: 97%;
+    color: #fff;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.desc h2{
+    height: auto;
+}
+
+.dados{
+    padding-top: 1%;
+    width: 30%;
+    height: calc(97% - 2px);
+    border: solid #8C52FF 2px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    align-items: center;
+}
+
+h2{
+    color: #fff;
+    /* background-color: red; */
+    width: 90%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+}
+
+.analytics{
+    height: 80%;
+    width: 90%;
+    /* background-color: #8C52FF; */
+}
+
+.prct{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.barraVazia{
+    width: 90%;
+    height: 20%;
+    background-color: #404040;
+    border-radius: 10em;
+    border: solid 2px #fff;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.barraPreenc{
+    height: 90%;
+    border-radius: 10em;
+    display: flex;
+    align-items: center;
+}
