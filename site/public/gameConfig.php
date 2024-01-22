@@ -36,6 +36,7 @@
                     <div class="field">
                         <h3>Gênero do personagem</h3>
                         <select name="gPersonagem">
+                            <option value="geral">Geral</option>
                             <option value="m">Masculino</option>
                             <option value="f">Feminino</option>
                         </select>
