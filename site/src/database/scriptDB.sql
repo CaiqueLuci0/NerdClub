@@ -126,27 +126,10 @@ INSERT INTO voto(fkPersonagem, fkUsuario) VALUES
 (5, 1000),
 (5, 1000),
 (5, 1000);
-SELECT * FROM VOTO;
-
-select count(fkPersonagem) from voto where fkpersonagem=1;
-
-SELECT idCategoria FROM categoria JOIN personagem ON fkCategoria = idCategoria WHERE idPersonagem = 3;
 
 SELECT 
-p.nome nome,
-p.sobrenome snome,
-(SELECT count(fkPersonagem) FROM voto WHERE fkPersonagem = 3) votosTotaisDoPersonagem,
-(SELECT count(fkPersonagem) FROM voto) qtdVotosTotais,
-(SELECT count(fkPersonagem) FROM voto JOIN personagem ON fkPersonagem = idPersonagem WHERE fkCategoria = 11) qtdVotosCategoria,
-(SELECT count(fkPersonagem) FROM voto JOIN personagem ON fkPersonagem = idPersonagem WHERE fkCategoria = 11 AND fkPersonagem = 3) votosTotaisDoPersonagemNaCategoria,
-p.idade idade,
-p.genero genero,
-p.cor cor,
-p.imagem imagemPerso,
-o.imagem imagemObra
-FROM personagem p
-JOIN obra o
-ON p.fkObra = o.idObra;
+generoObra
+FROM obra GROUP BY generoObra;
 
 
 

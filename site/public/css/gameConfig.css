@@ -1,0 +1,84 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    background-image: url("../assets/img/banner_login.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 60%;
+    height: 75%;
+    background-color: #fff;
+    border: solid 4px #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 95%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+h1{
+    width: 100%;
+    height: 20%;
+    font-size: 250%;
+    /* background-color: blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fields{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.field{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+select{
+    width: 100px;
+    height: 40%;
+    border: none;
+    border-radius: 10em;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    text-align: center;
+    background-color: #C0C0C0;
+}
+
+input{
+    width: 30%;
+    height: 20%;
+    font-size: 200%;
+    border: solid 4px #8C52FF;
+    color: #8C52FF;
+}
+

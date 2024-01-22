@@ -14,6 +14,24 @@ if (isset($dados['id'])) {
         $_SESSION['idPersonagem'] = $id;
         echo json_encode(array("mensagem" => $resposta));
     }
+};
+
+function gerarSelectCatPersonagem($dbPath){
+    require($dbPath);
+    if($connected){
+        $query = "SELECT nome, idCategoria FROM categoria;";
+
+        $select = mysqli_query($conn, $query);
+
+        if(mysqli_num_rows($select) > 0){
+            echo "<option value=\"geral\">Geral</option>";
+            while($linha = mysqli_fetch_assoc($select)){
+                $categoria = $linha['nome'];
+                $idCat = $linha['idCategoria'];
+                echo "<option value=\"$idCat\">$categoria</option>";
+            }
+        }
+    }
 }
 
 function buscarDadosPersonagem($dbPath, $id){
