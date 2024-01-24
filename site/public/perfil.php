@@ -13,15 +13,13 @@
 <body>
     <main>
         <?php 
-        session_start();
-        if(isset($_SESSION['idPersonagem'])){
+        if(isset($_GET['personagem'])){
             include('html/header.html');
-            $id = $_SESSION['idPersonagem'];
+            $id = $_GET['personagem'];
             $dbPath = '../src/database/config.php';
             require('../src/models/personagem.php');
             buscarDadosPersonagem($dbPath, $id);
         }
-        session_destroy();
         ?>
     </main>
 </body>

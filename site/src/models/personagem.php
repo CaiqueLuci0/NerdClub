@@ -1,20 +1,20 @@
 <?php
-// Recebe a variável enviada via POST
-$dados = json_decode(file_get_contents("php://input"), true);
+// // Recebe a variável enviada via POST
+// $dados = json_decode(file_get_contents("php://input"), true);
 
-if (isset($dados['id'])) {
+// if (isset($dados['id'])) {
 
-    $id = $dados['id'];
-    $req = $dados['requisicao'];
+//     $id = $dados['id'];
+//     $req = $dados['requisicao'];
 
-    if ($dados['requisicao'] == "buscar-personagem-por-id") {
-        $resposta = "Recebi o id: $id";
+//     if ($dados['requisicao'] == "buscar-personagem-por-id") {
+//         $resposta = "Recebi o id: $id";
 
-        session_start();
-        $_SESSION['idPersonagem'] = $id;
-        echo json_encode(array("mensagem" => $resposta));
-    }
-};
+//         session_start();
+//         $_SESSION['idPersonagem'] = $id;
+//         echo json_encode(array("mensagem" => $resposta));
+//     }
+// };
 
 function gerarSelectCatPersonagem($dbPath)
 {
@@ -185,7 +185,7 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
             }
         }
 
-        if($qtdRodadas != "max"){
+        if ($qtdRodadas != "max") {
             $limit = "LIMIT " . $qtdRodadas * 2;
             $query = $query . $limit;
         }
@@ -196,10 +196,10 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
 
         $select = mysqli_query($conn, $query);
 
-        if(mysqli_num_rows($select) > 0){
+        if (mysqli_num_rows($select) > 0) {
             $array_js = "[";
             $i = 1;
-            while($linha = mysqli_fetch_assoc($select)){
+            while ($linha = mysqli_fetch_assoc($select)) {
 
                 $imgO = $linha['imagemObra'];
                 $nome = $linha['nome'];
@@ -207,7 +207,7 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
                 $idPersonagem = $linha['idPersonagem'];
                 $cor = $linha['cor'];
                 $imgP = $linha['imagemPerso'];
-                if($i < mysqli_num_rows($select)){
+                if ($i < mysqli_num_rows($select)) {
                     $array_js = $array_js . "{
                         idPersonagem: $idPersonagem,
                         nome: '$nome',
@@ -226,7 +226,7 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
                         imgO: '$imgO'
                     } ]";
                 }
-                $i+= 1;
+                $i += 1;
             }
             echo "<script>
                 const personagens = $array_js;

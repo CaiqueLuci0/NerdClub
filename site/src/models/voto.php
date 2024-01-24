@@ -48,7 +48,7 @@ function criartabela($dbpath){
                         <div $corColocacao class=\"posicao\">
                             <h1>$i</h1>
                         </div>
-                        <div id=\"$idperso\" onclick=\"buscarPersonagemPorId(document.getElementById('$idperso'))\" class=\"nomeperso\"><img class=\"icoperso\" src=\"$imgp\" alt=\"imagem de $nomep $sobrenome \"> 
+                        <div id=\"$idperso\" onclick=\"setTimeout(window.location.href = 'http://localhost/NerdClub/site/public/perfil.php?personagem=$idperso', 100)\" class=\"nomeperso\"><img class=\"icoperso\" src=\"$imgp\" alt=\"imagem de $nomep $sobrenome \"> 
                             <h1 style=\"color: $cor;\">
                                 $nomep $sobrenome
                             </h1>
