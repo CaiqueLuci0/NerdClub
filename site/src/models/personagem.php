@@ -166,11 +166,11 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
         $wheres["categoria personagem"] = $catPersonagem;
         $wheres["genero personagem"] = $gPersonagem;
 
-        $i = 0;
+        $primeiro = true;
         foreach ($wheres as $key => $value) {
             if ($value != "geral") {
-                if ($i == 0) {
-                    $i += 1;
+                if ($primeiro == true) {
+                    $primeiro = false;
                     $query = $query . "WHERE";
                 } else {
                     $query = $query . "AND";
@@ -185,6 +185,8 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
             }
         }
 
+        $query = $query . "ORDER BY RAND()";
+
         if ($qtdRodadas != "max") {
             $limit = "LIMIT " . $qtdRodadas * 2;
             $query = $query . $limit;
@@ -192,7 +194,8 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
 
         $query = $query . ';';
 
-        echo $query;
+        // DESCOMENTE PARA MOSTRAR A QUERY NA PAGINA
+        // echo $query;
 
         $select = mysqli_query($conn, $query);
 
@@ -228,9 +231,11 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
                 }
                 $i += 1;
             }
+
+            //Depois tenho q fazer isso via fetch
             echo "<script>
-                const personagens = $array_js;
-                console.log(personagens);
+                const v = $array_js;
+                receberVetor(v);
             </script>";
         }
     }

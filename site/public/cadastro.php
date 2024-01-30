@@ -87,6 +87,11 @@ if (isset($_POST['enviado'])) {
         echo "<script>
                 mostrarMensagem(`$mensagem`);
             </script>";
+    } else if($username != filter_var($username, FILTER_SANITIZE_SPECIAL_CHARS)){
+        $mensagem = '<h2 style="color: red";> O nome não pode ter caracteres especiais.</h2>';
+        echo "<script>
+                mostrarMensagem(`$mensagem`);
+            </script>";
     } else {
         require('../src/models/usuario.php');
         $dbpath = '../src/database/config.php';
