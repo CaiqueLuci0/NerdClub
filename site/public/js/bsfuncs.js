@@ -7,7 +7,7 @@ function mostrarMensagem(mensagem){
     const div_mssg = document.getElementById('div_mssg');
 
     div_mssg.style.opacity = 1;
-    div_mssg.innerHTML = mensagem;
+    div_mssg.innerHTML = `<h2 style="color: red;">${mensagem}</h2>`;
     console.log('mensagem' + mensagem);
 
     setTimeout(()=>{

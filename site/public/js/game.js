@@ -74,13 +74,12 @@ function eliminarPersonagem(eliminado, selecionado) {
 function telaFinal() {
     colocacaoFinal.push(personagens[0]);
 
-    // colocacaoFinal = colocacaoFinal.reverse();
-
     const telaFinal_html = document.getElementById('section_telaFinal');
+
     let conteudo = '';
     let estilo = null;
     let cor = null;
-    // const teste = 'class="posicao"'
+
     for (let i = colocacaoFinal.length - 1; i >= 0; i--) {
         if (i == colocacaoFinal.length - 1) {
             estilo = 'style="width: 90%; height: 300px;"';
@@ -96,18 +95,18 @@ function telaFinal() {
             cor = null;
         }
 
-        personagem = colocacaoFinal[i];
+        const personagem = colocacaoFinal[i];
 
         conteudo += `
-        <div ${estilo} class="cardPersonagem">
-                <div ${cor} class=" posicao"><h1>${colocacaoFinal.length - i}</h1></div>
+        <div ${estilo} class="cardPersonagem" onclick="window.location.href = 'http://localhost/NerdClub/site/public/perfil.php?personagem=${personagem.idPersonagem}'">
+                <div ${cor} class=" posicao"><h1>#${colocacaoFinal.length - i}</h1></div>
                 <img style="height: 100%; width: auto; border: solid 4px ${personagem.cor}" src="${personagem.imgP}" alt="imagem de ${personagem.nome} ${personagem.snome}"> 
             <div class="infoPersonagem">
                 <h1 style="width: 70%; height: 50%; color:${personagem.cor}; display: flex; align-items: center; justify-content: center; font-size: 250%" class="nomePerso">${(personagem.nome).toUpperCase()} ${(personagem.snome).toUpperCase()}</h1>
                 <img style="height: auto; width: 70%;" class="imgObra" src="${personagem.imgO}" alt="imagem da obra">
             </div>                   
         </div>
-        `
+        `;
     }
 
     const cardRanking = document.getElementById('cardRanking');
@@ -116,4 +115,21 @@ function telaFinal() {
     telaFinal_html.style.height = '100vh';
     telaFinal_html.style.position = 'absolute';
     telaFinal_html.style.opacity = '1';
+
+    console.log(personagens);
+    cadastrarVoto(personagens[0].idPersonagem);
+}
+
+function cadastrarVoto(id){
+    fetch('http://localhost/NerdClub/site/src/models/voto.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            idPerso: id,
+            requisicao: 'inserir-novo-voto',
+            idUser: sessionStorage.IDUSER
+            })
+    })
 }

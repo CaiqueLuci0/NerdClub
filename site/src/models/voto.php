@@ -1,4 +1,19 @@
 <?php
+$dados = json_decode(file_get_contents("php://input"), true);
+
+if(isset($dados['requisicao'])){
+    $requisicao = $dados['requisicao'];
+    if($requisicao == 'inserir-novo-voto'){
+        $idPerso = $dados['idPerso'];
+        $idUser = $dados['idUser'];
+        $res = inserirNovoVoto($id, $idUser);
+    }
+}
+
+function inserirNovoVoto($id, $idUser){
+
+}
+
 
 function criartabela($dbpath){
     include($dbpath);

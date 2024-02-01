@@ -32,7 +32,7 @@
                         $senha = $_POST['senha'];
                     }
                     ?>
-                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                    <form class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                         <span class="field">
                             UserName:<input type="text" name="username" placeholder="Mangafan" value="<?php if (isset($username) && !empty($username)) {
                                                                                                             echo $username;
@@ -63,32 +63,32 @@
 <?php
 if (isset($_POST['enviado'])) {
     if (empty($username) || empty($senha) || empty($email)) {
-        $mensagem = '<h2 style="color: red;">Os campos não podem estar vazios!</h2>';
+        $mensagem = 'Os campos não podem estar vazios!';
         echo "<script>
                 mostrarMensagem(`$mensagem`);
             </script>";
     } else if (filter_var($email, FILTER_VALIDATE_EMAIL) == false) {
-        $mensagem = '<h2 style="color: red;">E-mail inválido.</h2>';
+        $mensagem = 'E-mail inválido.';
         echo "<script>
                 mostrarMensagem(`$mensagem`);
             </script>";
     } else if (strlen($senha) < 8) {
-        $mensagem = '<h2 style="color: red;">A senha deve ter mais que 8 caracteres.</h2>';
+        $mensagem = 'A senha deve ter mais que 8 caracteres.';
         echo "<script>
                 mostrarMensagem(`$mensagem`);
             </script>";
     } else if (filter_var($senha, FILTER_SANITIZE_SPECIAL_CHARS) != $senha) {
-        $mensagem = '<h2 style="color: red;">A senha não pode conter caracteres especiais.</h2>';
+        $mensagem = 'A senha não pode conter caracteres especiais.';
         echo "<script>
                 mostrarMensagem(`$mensagem`);
             </script>";
     } else if (str_replace(" ", "", $username) != $username) {
-        $mensagem = '<h2 style="color: red";> O nome não pode ter espaços.</h2>';
+        $mensagem = 'O nome não pode ter espaços.';
         echo "<script>
                 mostrarMensagem(`$mensagem`);
             </script>";
     } else if($username != filter_var($username, FILTER_SANITIZE_SPECIAL_CHARS)){
-        $mensagem = '<h2 style="color: red";> O nome não pode ter caracteres especiais.</h2>';
+        $mensagem = 'O nome não pode ter caracteres especiais.';
         echo "<script>
                 mostrarMensagem(`$mensagem`);
             </script>";
