@@ -28,7 +28,7 @@
 }
 
 .nomepersonagem{
-    width: 90%;
+    width: 85%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -71,7 +71,6 @@
     padding-top: 1%;
     width: 30%;
     height: calc(97% - 2px);
-    border: solid #8C52FF 2px;
     display: flex;
     flex-direction: column;
     /* align-items: center; */

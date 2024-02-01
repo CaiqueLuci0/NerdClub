@@ -11,7 +11,8 @@ const colocacaoFinal = [];
 function montarRound() {
 
     if (personagens.length == 1) {
-        alert(`Acabou! o vencedor(a) é: ${personagens[0].nome}`)
+        // alert(`Acabou! o vencedor(a) é: ${personagens[0].nome}`);
+        telaFinal();
     } else {
 
         const div_principal = document.getElementById('div_info');
@@ -68,4 +69,51 @@ function eliminarPersonagem(eliminado, selecionado) {
     personagensUsados.splice(0, personagensUsados.length);
     // console.log(personagens);
     montarRound();
+}
+
+function telaFinal() {
+    colocacaoFinal.push(personagens[0]);
+
+    // colocacaoFinal = colocacaoFinal.reverse();
+
+    const telaFinal_html = document.getElementById('section_telaFinal');
+    let conteudo = '';
+    let estilo = null;
+    let cor = null;
+    // const teste = 'class="posicao"'
+    for (let i = colocacaoFinal.length - 1; i >= 0; i--) {
+        if (i == colocacaoFinal.length - 1) {
+            estilo = 'style="width: 90%; height: 300px;"';
+            cor = 'style="background-color: #FFD700;"';
+        } else if (i == colocacaoFinal.length - 2) {
+            estilo = 'style="width: 87%; height: 280px;"';
+            cor = 'style="background-color: #8E99A2;"';
+        } else if (i == colocacaoFinal.length - 3) {
+            estilo = 'style="width: 83%; height: 260px;"';
+            cor = 'style="background-color: #CD7F32;"';
+        } else {
+            estilo = null;
+            cor = null;
+        }
+
+        personagem = colocacaoFinal[i];
+
+        conteudo += `
+        <div ${estilo} class="cardPersonagem">
+                <div ${cor} class=" posicao"><h1>${colocacaoFinal.length - i}</h1></div>
+                <img style="height: 100%; width: auto; border: solid 4px ${personagem.cor}" src="${personagem.imgP}" alt="imagem de ${personagem.nome} ${personagem.snome}"> 
+            <div class="infoPersonagem">
+                <h1 style="width: 70%; height: 50%; color:${personagem.cor}; display: flex; align-items: center; justify-content: center; font-size: 250%" class="nomePerso">${(personagem.nome).toUpperCase()} ${(personagem.snome).toUpperCase()}</h1>
+                <img style="height: auto; width: 70%;" class="imgObra" src="${personagem.imgO}" alt="imagem da obra">
+            </div>                   
+        </div>
+        `
+    }
+
+    const cardRanking = document.getElementById('cardRanking');
+    cardRanking.innerHTML = conteudo;
+    telaFinal_html.style.width = '100%';
+    telaFinal_html.style.height = '100vh';
+    telaFinal_html.style.position = 'absolute';
+    telaFinal_html.style.opacity = '1';
 }

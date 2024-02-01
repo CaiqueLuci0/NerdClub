@@ -111,7 +111,7 @@ function buscarDadosPersonagem($dbPath, $id)
                 </div>
             </div>
             <div class=\"conteudo\">
-                <div class=\"dados\">
+                <div style=\"border: solid 2px $cor\" class=\"dados\">
                     <h2>Idade: $idade</h2>
                     <h2>Gênero: <img style=\"height: 100%; width: auto;\" src=\"$genero\" alt=\"\"></h2>
                     <div class=\"analytics\">
@@ -185,10 +185,10 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
             }
         }
 
-        $query = $query . "ORDER BY RAND()";
+        $query = $query . "ORDER BY RAND() ";
 
         if ($qtdRodadas != "max") {
-            $limit = "LIMIT " . $qtdRodadas * 2;
+            $limit = "LIMIT " . $qtdRodadas + 1;
             $query = $query . $limit;
         }
 
