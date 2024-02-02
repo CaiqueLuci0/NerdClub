@@ -6,7 +6,10 @@ if(isset($dados['requisicao'])){
     if($requisicao == 'inserir-novo-voto'){
         $idPerso = $dados['idPerso'];
         $idUser = $dados['idUser'];
-        $res = inserirNovoVoto($id, $idUser);
+
+        $mensagem = "O id do personagem é: $idPerso; o id do usuario é: $idUser";
+        echo json_encode(array("mensagem" => $mensagem));
+        // $res = inserirNovoVoto($id, $idUser);
     }
 }
 

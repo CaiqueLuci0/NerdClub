@@ -120,16 +120,31 @@ function telaFinal() {
     cadastrarVoto(personagens[0].idPersonagem);
 }
 
-function cadastrarVoto(id){
+function cadastrarVoto(idPersonagem){
+
+    let cookies = document.cookie;
+        cookies = cookies.split('; ');
+        const cookies_json = {};
+        cookies.forEach(cookie => {
+            let array = cookie.split('=');
+            console.log(array);
+            cookies_json[`${array[0]}`] = array[1];
+        });
+        console.log(cookies_json);
+        console.log(cookies_json['id'])
+
     fetch('http://localhost/NerdClub/site/src/models/voto.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            idPerso: id,
-            requisicao: 'inserir-novo-voto',
-            idUser: sessionStorage.IDUSER
+            idPerso: idPersonagem,
+            idUser: cookies_json['id'],
+            requisicao: 'inserir-novo-voto'
             })
+    }).then(res => res.json())
+    .then(json =>{
+        console.log(json)
     })
 }

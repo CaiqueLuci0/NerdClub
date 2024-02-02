@@ -28,6 +28,8 @@ function login($email, $senha){
                 ));
             } else{
                 $linha = mysqli_fetch_assoc($select);
+                setcookie('userName', $linha['nome'], time() + (86400*2), "/");
+                setcookie('id', $linha['idUsuario'], time() + (86400*2), "/");
                 echo json_encode($linha);
             }
         }catch(mysqli_sql_exception){

@@ -5,6 +5,7 @@ function login() {
     if (email == '' || senha == '') {
         mostrarMensagem('Os campos não podem estar vazios.');
     } else {
+
         fetch('http://localhost/NerdClub/site/src/models/usuario.php', {
             method: 'POST',
             headers: {
@@ -22,8 +23,7 @@ function login() {
                     if (json.mensagem != undefined) {
                         mostrarMensagem(json.mensagem);
                     } else {
-                        sessionStorage.IDUSUARIO = json.idUsuario;
-                        sessionStorage.NOMEUSUARIO = json.nome;
+                        window.location.href = 'gameConfig.php';
                     }
                 }
             )
