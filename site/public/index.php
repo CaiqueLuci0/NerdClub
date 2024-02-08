@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NerdClub</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/requisicoes.js"></script>
 </head>
@@ -14,17 +14,17 @@
                 include("html\header.html")
                 ?>
         <div class="banner">
-            <div class="banner-p">
-                <div class="banner-a"><img src="assets/img/logo.png ">
-                    <h1>Me diz seu personagem favorito?</h1> <button><a href="">Jogar</a></button>
+            <div class="line-banner">
+                <div class="square-banner" style="display: flex; flex-direction: column; align-items: center;">
+                    <img style="width: 70%; height:auto;" src="./assets/img/logo.png" alt="logo nerdClub">
+                    <h1>Me diz seu personagem favorito?</h1>
+                    <button onclick="window.location.href='http:\/\/localhost/NerdClub/site/public/gameConfig.php'">JOGAR</button>
                 </div>
-                <div></div>
-
+                <div style="background-image:url('./assets/img/banner-home/1.png');" class="square-banner"></div>
             </div>
-            <div class="banner-p">
-                <div></div>
-                <div></div>
-
+            <div style="height: 42%;" class="line-banner">
+                <div style="width: 40%; height: 100%; background-image:url('./assets/img/banner-home/2.png');" class="square-banner"></div>
+                <div style="width: 60%; height: 100%; background-image:url('./assets/img/banner-home/3.jpg');" class="square-banner"></div>
             </div>
         </div>
     </section>

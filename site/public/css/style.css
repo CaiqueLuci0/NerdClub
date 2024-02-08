@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
     height: 80px;
     width: 100%;
@@ -51,7 +57,7 @@ main {
     border: solid 3px #FFF26C;
 }
 
-.div1 :hover{
+.div1 :hover {
     border: none;
 }
 
@@ -60,12 +66,56 @@ main {
     width: 100%;
     height: 100%;
     background-color: white;
-    display: flex;
-    justify-content: center;
-
+    overflow: hidden;
 }
 
-.banner-p {
+.line-banner{
+    width: 100%;
+    height: 58%;
+    display: flex;
+    border-top: solid 2px #000;
+}
+
+.square-banner{
+    width: 50%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border: solid 1px #000; */
+}
+
+.square-banner h1{
+    width: 70%;
+    height: 25%;
+    text-align: center;
+    font-size: 250%;
+}
+
+.square-banner button{
+    width: 50%;
+    height: 25%;
+    font-size: 250%;
+    border: none;
+    border-radius: 10em;
+    background-color:#FFF26C;
+    color: #fff;
+    font-size: 300%;
+    font-weight: 600;
+}
+
+.square-banner button:hover{
+    text-decoration: none;
+    background-color: #404040;
+    color: #fff;
+    border: solid 5px #FFF26C;
+}
+
+.imgbanner{
+    width: 100%;
+    height: 100%;
+}
+
+/*.banner-p {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,18 +124,22 @@ main {
     border: 1px solid black;
 
 }
-
-.banner-a {
-    width: 80%;
-    height: 80%;
+.banner-p {
+    width: 100%;
+    height: 50%;
     display: flex;
     text-align: center;
     flex-direction: column;
+    align-items: center;
     border: 1px solid black;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-
+.banner-a button{
+    width: 50%;
+    height: 30%;
+    background-color: #FFFF00;
+} */
 
 .input {
     width: 50%;
@@ -95,11 +149,7 @@ main {
 
 }
 
-* {
-    padding: 0;
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-}
+/*TABELA*/
 
 section {
     width: 100%;

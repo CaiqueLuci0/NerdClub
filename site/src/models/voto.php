@@ -9,11 +9,11 @@ if(isset($dados['requisicao'])){
 
         $mensagem = "O id do personagem é: $idPerso; o id do usuario é: $idUser";
         echo json_encode(array("mensagem" => $mensagem));
-        // $res = inserirNovoVoto($id, $idUser);
+        inserirNovoVoto($idPerso, $idUser);
     }
 }
 
-function inserirNovoVoto($id, $idUser){
+function inserirNovoVoto($idPerso, $idUser){
 
 }
 
