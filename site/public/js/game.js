@@ -81,6 +81,11 @@ function telaFinal() {
     let cor = null;
 
     for (let i = colocacaoFinal.length - 1; i >= 0; i--) {
+
+        // const estilo = (i == colocacaoFinal.length - 1 ? 'style="width: 90%; height: 300px;"' : i == colocacaoFinal.length - 2 ? 'style="width: 87%; height: 280px;"' : i == colocacaoFinal.length - 3 ? 'style="width: 83%; height: 260px;"' : null);
+
+        // const cor = (i == colocacaoFinal.length - 1 ? 'style="background-color: #FFD700;"' : i == colocacaoFinal.length - 2 ? 'style="background-color: #8E99A2;"' : i == colocacaoFinal.length - 3 ? 'style="background-color: #CD7F32;"' : null);
+
         if (i == colocacaoFinal.length - 1) {
             estilo = 'style="width: 90%; height: 300px;"';
             cor = 'style="background-color: #FFD700;"';
@@ -120,18 +125,18 @@ function telaFinal() {
     cadastrarVoto(personagens[0].idPersonagem);
 }
 
-function cadastrarVoto(idPersonagem){
+function cadastrarVoto(idPersonagem) {
 
     let cookies = document.cookie;
-        cookies = cookies.split('; ');
-        const cookies_json = {};
-        cookies.forEach(cookie => {
-            let array = cookie.split('=');
-            console.log(array);
-            cookies_json[`${array[0]}`] = array[1];
-        });
-        console.log(cookies_json);
-        console.log(cookies_json['id'])
+    cookies = cookies.split('; ');
+    const cookies_json = {};
+    cookies.forEach(cookie => {
+        let array = cookie.split('=');
+        console.log(array);
+        cookies_json[`${array[0]}`] = array[1];
+    });
+    console.log(cookies_json);
+    console.log(cookies_json['id'])
 
     fetch('http://localhost/NerdClub/site/src/models/voto.php', {
         method: 'POST',
@@ -142,9 +147,9 @@ function cadastrarVoto(idPersonagem){
             idPerso: idPersonagem,
             idUser: cookies_json['id'],
             requisicao: 'inserir-novo-voto'
-            })
+        })
     }).then(res => res.json())
-    .then(json =>{
-        console.log(json)
-    })
+        .then(json => {
+            console.log(json)
+        })
 }

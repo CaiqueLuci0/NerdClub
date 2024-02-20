@@ -15,7 +15,7 @@
 <section>
         <?php
         include("html/header.html");
-        ?>
+        ;?>
 
         <div class="main">
             <div class="card">

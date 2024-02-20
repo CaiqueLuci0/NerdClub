@@ -8,7 +8,7 @@
             <?php 
                 include("../src/models/voto.php");
                 $dbpath = "../src/database/config.php";
-                criartabela($dbpath);
-            ?>
+                criartabela();
+            ;?>
         </div>
     </section>

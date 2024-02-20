@@ -19,9 +19,8 @@
                         <select name="gObra">
                             <?php
                             require('../src/models/obra.php');
-                            $dbPath = "../src/database/config.php";
                             gerarSelectGeneroObra($dbPath);
-                            ?>
+                            ;?>
                         </select>
                     </div>
                     <div class="field">
@@ -30,7 +29,7 @@
                             <?php
                             require('../src/models/personagem.php');
                             gerarSelectCatPersonagem($dbPath);
-                            ?>
+                            ;?>
                         </select>
                     </div>
                     <div class="field">

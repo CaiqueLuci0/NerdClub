@@ -18,9 +18,9 @@
             $id = $_GET['personagem'];
             $dbPath = '../src/database/config.php';
             require('../src/models/personagem.php');
-            buscarDadosPersonagem($dbPath, $id);
+            buscarDadosPersonagem($id);
         }
-        ?>
+        ;?>
     </main>
 </body>
 

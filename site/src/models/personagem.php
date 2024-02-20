@@ -16,17 +16,17 @@
 //     }
 // };
 
-function gerarSelectCatPersonagem($dbPath)
+function gerarSelectCatPersonagem()
 {
-    require($dbPath);
+    require __DIR__ . "/../database/config.php";
     if ($connected) {
         $query = "SELECT nome, idCategoria FROM categoria;";
 
-        $select = mysqli_query($conn, $query);
+        $select = $conn->query($query);
 
-        if (mysqli_num_rows($select) > 0) {
+        if ($select->rowCount() > 0) {
             echo "<option value=\"geral\">Geral</option>";
-            while ($linha = mysqli_fetch_assoc($select)) {
+            while ($linha = $select->fetch()) {
                 $categoria = $linha['nome'];
                 $idCat = $linha['idCategoria'];
                 echo "<option value=\"$idCat\">$categoria</option>";
@@ -35,9 +35,9 @@ function gerarSelectCatPersonagem($dbPath)
     }
 }
 
-function buscarDadosPersonagem($dbPath, $id)
+function buscarDadosPersonagem($id)
 {
-    require($dbPath);
+    require __DIR__ . "/../database/config.php";
     if ($connected) {
         $query = "SELECT 
         idCategoria,
@@ -47,10 +47,10 @@ function buscarDadosPersonagem($dbPath, $id)
         ON fkCategoria = idCategoria 
         WHERE idPersonagem = $id;";
 
-        $select = mysqli_query($conn, $query);
+        $select = $conn->query($query);
 
-        if (mysqli_num_rows($select) > 0) {
-            $linha = mysqli_fetch_assoc($select);
+        if ($select->rowCount() > 0) {
+            $linha = $select->fetch();
             $idCat = $linha['idCategoria'];
             $nomeCat = $linha['nome'];
 
@@ -72,10 +72,10 @@ function buscarDadosPersonagem($dbPath, $id)
            ON p.fkObra = o.idObra WHERE p.idPersonagem = $id;
            ";
 
-            $select = mysqli_query($conn, $query);
+            $select = $conn->query($query);
 
-            if (mysqli_num_rows($select) > 0) {
-                $linha = mysqli_fetch_assoc($select);
+            if ($select->rowCount() > 0) {
+                $linha = $select->fetch();
                 $nome = strtoupper($linha['nome']);
                 $snome = strtoupper($linha['snome']);
                 $votosTotaisDoPersonagem = $linha['votosTotaisDoPersonagem'];
@@ -94,11 +94,8 @@ function buscarDadosPersonagem($dbPath, $id)
                 $prctVotosTotais = round($votosTotaisDoPersonagem * 100 / $votosTotais, 1);
                 $prctVotosCat = round($votosTotaisDoPersonagemNaCategoria * 100 / $votosCategoria, 1);
 
-                if ($genero == 'm') {
-                    $genero = './assets/img/masculino.png';
-                } else {
-                    $genero = './assets/img/feminino.png';
-                }
+                $genero = ($genero == 'm' ? './assets/img/masculino.png' : './assets/img/feminino.png');
+
                 echo "
             <div class=\"container\">
             <div class=\"cabecalho\">
@@ -144,9 +141,9 @@ function buscarDadosPersonagem($dbPath, $id)
     }
 }
 
-function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtdRodadas)
+function criarVetorParaOJogo($gObra, $catPersonagem, $gPersonagem, $qtdRodadas)
 {
-    require($dbPath);
+    require __DIR__ . "/../database/config.php";
 
     if ($connected) {
         $query = "SELECT 
@@ -175,6 +172,8 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
                 } else {
                     $query = $query . "AND";
                 }
+
+                // $query = ($key == "genero obra" ? $query . " o.generoObra = '$value' " : $key == "categoria personagem" ? $query . " p.fkCategoria = $value " : $query . " p.genero ='$value'");
                 if ($key == "genero obra") {
                     $query = $query . " o.generoObra = '$value' ";
                 } else if ($key == "categoria personagem") {
@@ -197,12 +196,12 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
         // DESCOMENTE PARA MOSTRAR A QUERY NA PAGINA
         // echo $query;
 
-        $select = mysqli_query($conn, $query);
+        $select = $conn->query($query);
 
-        if (mysqli_num_rows($select) > 0) {
+        if ($select->rowCount() > 0) {
             $array_js = "[";
             $i = 1;
-            while ($linha = mysqli_fetch_assoc($select)) {
+            while ($linha = $select->fetch()) {
 
                 $imgO = $linha['imagemObra'];
                 $nome = $linha['nome'];
@@ -210,7 +209,7 @@ function criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtd
                 $idPersonagem = $linha['idPersonagem'];
                 $cor = $linha['cor'];
                 $imgP = $linha['imagemPerso'];
-                if ($i < mysqli_num_rows($select)) {
+                if ($i < $select->rowCount()) {
                     $array_js = $array_js . "{
                         idPersonagem: $idPersonagem,
                         nome: '$nome',

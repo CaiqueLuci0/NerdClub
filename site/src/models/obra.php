@@ -1,7 +1,7 @@
 <?php 
 
-function gerarSelectGeneroObra($dbPath){
-    require($dbPath);
+function gerarSelectGeneroObra(){
+    require __DIR__ . "/../database/config.php";
 
     if($connected){
         $query = "SELECT 
@@ -9,16 +9,14 @@ function gerarSelectGeneroObra($dbPath){
         FROM obra 
         GROUP BY generoObra;";
 
-        $select = mysqli_query($conn, $query);
+        $select = $conn->query($query);
 
-        if(mysqli_num_rows($select) > 0){
+        if($select->rowCount() > 0){
             echo "<option value=\"geral\">Geral</option>";
-            while($linha = mysqli_fetch_assoc($select)){
+            while($linha = $select->fetch()){
                 $genero = $linha['generoObra'];
                 echo "<option value=\"$genero\">$genero</option>";
             }
         }
     }
 }
-
-?>

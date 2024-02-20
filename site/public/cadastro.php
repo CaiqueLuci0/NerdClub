@@ -14,7 +14,7 @@
     <section>
         <?php
         include("html/header.html");
-        ?>
+        ;?>
 
         <div class="main">
             <div class="card">
@@ -31,22 +31,22 @@
                         $email = $_POST['email'];
                         $senha = $_POST['senha'];
                     }
-                    ?>
-                    <form class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
+                    ;?>
+                    <form class="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ;?>" method="post">
                         <span class="field">
                             UserName:<input type="text" name="username" placeholder="Mangafan" value="<?php if (isset($username) && !empty($username)) {
                                                                                                             echo $username;
-                                                                                                        } ?>">
+                                                                                                        } ;?>">
                         </span>
                         <span class="field">
                             E-mail:<input type="email" name="email" placeholder="usuario@exemplo.com" value="<?php if (isset($email) && !empty($email)) {
                                                                                                                     echo $email;
-                                                                                                                } ?>">
+                                                                                                                } ;?>">
                         </span>
                         <span class="field">
                             Senha:<input type="password" name="senha" placeholder="********" value="<?php if (isset($senha) && !empty($senha)) {
                                                                                                         echo $senha;
-                                                                                                    } ?>">
+                                                                                                    } ;?>">
                         </span>
                         <a href="login.php" style="color: #8C52FF; text-decoration: none;">já tenho uma conta</a>
                         <input class="submit" name="enviado" type="submit" value="Enviar">
@@ -94,11 +94,10 @@ if (isset($_POST['enviado'])) {
             </script>";
     } else {
         require('../src/models/usuario.php');
-        $dbpath = '../src/database/config.php';
-        cadastrar($dbpath, strtoupper($username), strtoupper($email), $senha);
+        cadastrar(strtoupper($username), strtoupper($email), $senha);
     }
 }
-?>
+;?>
 
 <script>
     removerBotoesHeader();

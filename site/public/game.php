@@ -62,7 +62,6 @@ if (!isset($_POST['submit'])) {
     $qtdRodadas = $_POST['qtdRodadas'];
 
     require('../src/models/personagem.php');
-    $dbPath = '../src/database/config.php';
-    criarVetorParaOJogo($dbPath, $gObra, $catPersonagem, $gPersonagem, $qtdRodadas);
+    criarVetorParaOJogo($gObra, $catPersonagem, $gPersonagem, $qtdRodadas);
 }
 ?>

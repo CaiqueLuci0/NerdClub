@@ -11,8 +11,8 @@
 
 <body>
     <section> <?php
-                include("html\header.html")
-                ?>
+                include("html\header.html");
+                ;?>
         <div class="banner">
             <div class="line-banner">
                 <div class="square-banner" style="display: flex; flex-direction: column; align-items: center;">
@@ -20,11 +20,11 @@
                     <h1>Me diz seu personagem favorito?</h1>
                     <button onclick="window.location.href='http:\/\/localhost/NerdClub/site/public/gameConfig.php'">JOGAR</button>
                 </div>
-                <div style="background-image:url('./assets/img/banner-home/1.png');" class="square-banner"></div>
+                <div style="background-image:url('./assets/img/banner_home/1.png');" class="square-banner"></div>
             </div>
             <div style="height: 42%;" class="line-banner">
-                <div style="width: 40%; height: 100%; background-image:url('./assets/img/banner-home/2.png');" class="square-banner"></div>
-                <div style="width: 60%; height: 100%; background-image:url('./assets/img/banner-home/3.jpg');" class="square-banner"></div>
+                <div style="width: 40%; height: 100%; background-image:url('./assets/img/banner_home/2.png');" class="square-banner"></div>
+                <div style="width: 60%; height: 100%; background-image:url('./assets/img/banner_home/3.jpg');" class="square-banner"></div>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@
         <!-- estou reciclando o estilo do título da tabela de ranking -->
             <div class="titulo"><h1 style="color: #fff; background-color:#8C52FF; border: none;">COMO FUNCIONA?</h1></div>
             <div class="como">
-                <div style="background-image: url('./assets/img/banner-home/middle_index.gif'); width: 43%; height: calc(95% - 10px); border: solid 5px #8C52FF;" class="containerComo">
+                <div style="background-image: url('./assets/img/banner_home/middle_index.gif'); width: 43%; height: calc(95% - 10px); border: solid 5px #8C52FF;" class="containerComo">
                     <!-- <img style="width: auto; height: 100%" src="" alt="gif satoru gojo"> -->
                 </div>
                 <div class="containerComo"></div>
@@ -42,8 +42,8 @@
     </section>
 
     <?php
-    include("leaderboard.php")
-    ?>
+    include("leaderboard.php");
+    ;?>
 
 </body>
 

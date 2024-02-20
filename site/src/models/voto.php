@@ -18,8 +18,8 @@ function inserirNovoVoto($idPerso, $idUser){
 }
 
 
-function criartabela($dbpath){
-    include($dbpath);
+function criartabela(){
+    require __DIR__ . "/../database/config.php";
     if ($connected) {
         $query = "SELECT 
             count(v.fkPersonagem) qtdVotos,
@@ -37,11 +37,11 @@ function criartabela($dbpath){
             JOIN voto v
             ON v.fkPersonagem = p.idPersonagem GROUP BY V.fkPersonagem ORDER BY qtdVotos DESC;";
 
-        $select = mysqli_query($conn, $query);
+        $select = $conn->query($query);
 
-        if (mysqli_num_rows($select) > 0) {
+        if ($select->rowCount() > 0) {
             $i = 1;
-            while ($linha = mysqli_fetch_assoc($select)) {
+            while ($linha = $select->fetch()) {
 
                 $nomep = strtoupper($linha['nomeperso']);
                 $sobrenome = strtoupper($linha['sobrenome']);
